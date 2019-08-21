@@ -1,2 +1,5 @@
 collections:
   cupcakes:
+
+  cookies:
+    output: true
