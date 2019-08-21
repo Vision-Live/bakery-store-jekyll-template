@@ -1,2 +1,7 @@
 collections:
   photo_gallery:
+  
+  cupcakes:
+
+  cookies:
+    output: true
