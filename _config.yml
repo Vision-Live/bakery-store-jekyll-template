@@ -1,3 +1,6 @@
+url: http://bakery-store.example.com
+show_drafts: true
+
 collections:
   photo_gallery:
   
