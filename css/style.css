@@ -200,12 +200,13 @@ hr {
 }
 
 textarea,
-input[type="text"] {
+input[type="text"],
+input[type="email"] {
 	width: 100%;
 	padding: 10px;
 	font-size: 18px;
 	display: block;
-	box-sizing: padding-box;
+	box-sizing: border-box;
 }
 
 textarea {
@@ -225,10 +226,25 @@ input[type="submit"] {
 	font-size: 20px;
 }
 
+.newsletter form {
+	padding: 30px;
+	border: 1px solid #ccc;
+}
+
+.newsletter label {
+	margin: 0;
+}
+
+.newsletter input[type="submit"] {
+	display: block;
+}
+
+.youtube {
+	text-align: center;
+
 .profile {
 	width: 60px;
 	border-radius: 50px;
 	margin-right: 20px;
 	position: relative;
 	top: 20px;
-}
