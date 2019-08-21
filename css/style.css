@@ -232,6 +232,20 @@ input[type="submit"] {
 	font-size: 20px;
 }
 
+.photo-gallery, .photo-gallery li {
+	list-style: none;
+	padding: 0;
+}
+
+.photo-gallery li {
+	display: inline-block;
+	width: 33%;
+}
+
+.photo-gallery li img {
+	width: 100%;
+}
+
 .filter-table {
 	border-spacing: 0;
 	padding: 50px 0;
