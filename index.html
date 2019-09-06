@@ -1,49 +1,62 @@
 ---
 layout: default
 title: Home
-navigation_weight: 1
-heading: Fresh, homemade baked goods
 ---
 
-<section class="hero">
-	<div class="small-container">
-		<h2>{{ page.heading | replace: "goods", "bread" | upcase }}</h2>
-		<p class="sub-text">Bakery<strong>Store</strong> serves the freshest baked goods in San Francisco.</p>
-	</div>
-</section>
-<div class="container">
-	<p class="post-hero center-text spacing">Bakery<strong>Store</strong> is known for our fresh bread, delicious cupcakes and chocolatey cookies.</p>
-</div>
-<div class="container">
-	<div class="columns spacing">
-		<div class="column half">
-			<img src="/images/bread.jpg" width="430" alt="Bread">
-		</div>
-		<div class="column half">
-			<h3>Fresh Bread</h3>
-			<p>Our bread is baked fresh every morning.</p>
-		</div>
-	</div>
-	<div class="columns spacing">
-		<div class="column half">
-			<h3>Delicious Cupcakes</h3>
-			<p>The best cupcakes in San Francisco.</p>
-		</div>
-		<div class="column half">
-			<img src="/images/cupcake.jpg" width="430" alt="cupcake">
-		</div>
-	</div>
-	<div class="columns spacing">
-		<div class="column half">
-			<img src="/images/cookie.jpg" width="430" alt="cookie">
-		</div>
-		<div class="column half">
-			<h3>Chocolatey cookies</h3>
-			<p>Served with a glass of milk.</p>
-		</div>
-	</div>
+<div class="home">
+  <div class="post-list">
 
-	{% include newsletter.html %}
+    {% for post in site.posts limit:5%}
 
-	{% include youtube.html youtube_id="YIiHiMXOeYU" %}
+    <article class="post_card post">
+      <header class="post_header">
+        <h2 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
+        <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
+      </header>
+      <div class="post_excerpt">
+        <p>
+          {% if post.description %}
+          {{ post.description}}
+          {% else %}
+          {{ post.excerpt }}
+          {% endif %} 
+          <a class="read-more" href="{{ post.url | prepend: site.baseurl }}"> »  </a>
+        </p> 
+      </div>
+      <footer class="post_meta">
+
+
+        {% if post.location %}
+        <span class="author-location">
+          <div data-icon="ei-location"></div>
+          <a href=https://www.google.com/maps/place/{{post.location}}">{{ post.location }}</a>
+        </span>
+        {% endif %}
+        <!--
+        {% for category in post.categories %}
+        <a href="{{"/category/" | append: category | prepend: site.baseurl }}">
+          <data data-icon="ei-archive"></data>
+          {{category}}</a>
+        {% endfor %}
+        -->
+
+        <!--
+        {% if post.author %}
+        <span class="author_meta">
+          <img src="{{site.baseurl}}/assets/img/{{post.author}}.jpg"></img>
+          <span>David Lin</span>
+        </span>
+        {% endif %}
+        -->
+
+        <!--p class="readmore">
+          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
+        </p-->
+      </footer>
+      <hr/>
+    </article>
+    {% endfor %}
+
+    <div class="pagination older-post"><a href="./archive"><data data-icon="ei-arrow-right"></data> Archive  </a></div>
+  </div>
 </div>
